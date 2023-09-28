@@ -1,0 +1,27 @@
+package frc.robot.commands;
+
+import frc.robot.Constants;
+import frc.robot.subsystems.IntakeSubsystem;
+
+import java.util.function.BooleanSupplier;
+import java.util.function.DoubleSupplier;
+
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj2.command.CommandBase;
+
+public class Intake extends CommandBase {
+    private final IntakeSubsystem intakeSubsystem;
+    private final double power;
+
+    Public Intake(IntakeSubsystem intakeSubsystem, double power) {
+        this.intakeSubsystem = intakeSubsystem;
+        this.power = power;
+        addRequirements(intakeSubsystem);
+    }
+
+   @Override
+   public void execute() {
+    intakeSubsystem.setMotor(power);
+   } 
+}
